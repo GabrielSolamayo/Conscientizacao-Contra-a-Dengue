@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dengue: previna, reconheça, cuide</title>
+<meta name="description" content="Informações simples sobre prevenção, sintomas e sinais de alerta da dengue.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#f2f8fa; --surface:#ffffff; --ink:#0f2530; --muted:#4a6471;
+  --water:#1b6f8f; --water-soft:#d6ebf2; --alert:#d93a22; --alert-soft:#fde4df; --line:#c9dde5;
+  --head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c1a21; --surface:#13262f; --ink:#e8f2f6; --muted:#9db6c1;
+    --water:#5bb6d6; --water-soft:#18394a; --alert:#ff6a52; --alert-soft:#3a1d19; --line:#25404d;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c1a21; --surface:#13262f; --ink:#e8f2f6; --muted:#9db6c1;
+  --water:#5bb6d6; --water-soft:#18394a; --alert:#ff6a52; --alert-soft:#3a1d19; --line:#25404d;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0}
+a{color:var(--water)}
+:focus-visible{outline:3px solid var(--alert);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+section{padding:4rem 0}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:.75rem}
+.lead{color:var(--muted);max-width:40rem;margin:0 0 2rem}
+
+/* Hero */
+.hero{padding:4.5rem 0 3.5rem;background:var(--water);color:#fff;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(2.4rem,7vw,5rem);font-weight:800;max-width:15ch;letter-spacing:-.02em}
+.hero p{font-size:1.2rem;max-width:36rem;margin:1.25rem 0 2rem;color:#e6f4f9}
+.btn{display:inline-block;background:#fff;color:#0f2530;font-weight:600;padding:.85rem 1.4rem;border-radius:999px;text-decoration:none}
+.btn:hover{background:var(--water-soft)}
+.drop{position:absolute;right:-4rem;bottom:-5rem;width:22rem;height:22rem;border-radius:50% 0 50% 50%;transform:rotate(-45deg);background:rgba(255,255,255,.1)}
+@media (max-width:640px){.drop{width:13rem;height:13rem;right:-3rem;bottom:-3rem}}
+
+/* Checklist */
+.check-grid{display:grid;gap:.75rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));margin-bottom:1.5rem}
+.item{display:flex;gap:.75rem;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:.75rem;padding:1rem;cursor:pointer}
+.item input{width:1.3rem;height:1.3rem;margin-top:.2rem;accent-color:var(--water);flex:none}
+.item strong{display:block}
+.item span{color:var(--muted);font-size:.95rem}
+.item:has(input:checked){background:var(--water-soft);border-color:var(--water)}
+.bar{height:.7rem;background:var(--line);border-radius:99px;overflow:hidden;max-width:28rem}
+.bar i{display:block;height:100%;width:0;background:var(--water);transition:width .3s}
+#msg{font-weight:600;margin:.6rem 0 0}
+
+/* Sintomas */
+.cols{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:1.5rem}
+.box h3{font-size:1.35rem;margin-bottom:.75rem}
+.box ul{margin:0;padding-left:1.2rem}
+.box li{margin:.3rem 0}
+.alert{background:var(--alert-soft);border:2px solid var(--alert)}
+.alert h3{color:var(--alert)}
+.alert-note{margin-top:1rem;font-weight:600}
+
+/* Faça / Não faça */
+.do{border-left:6px solid var(--water)}
+.dont{border-left:6px solid var(--alert)}
+
+.protect{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.protect div{border-top:3px solid var(--water);padding-top:.75rem}
+.protect h3{font-size:1.15rem;margin-bottom:.3rem}
+.protect p{margin:0;color:var(--muted)}
+
+footer{background:var(--surface);border-top:1px solid var(--line);padding:2.5rem 0;color:var(--muted);font-size:.95rem}
+footer strong{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bar i{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Uma tampinha de água parada já basta.</h1>
+    <p>É o suficiente para o mosquito da dengue se reproduzir. Prevenir leva poucos minutos por semana e protege sua casa e sua rua.</p>
+    <a class="btn" href="#casa">Verificar minha casa</a>
+  </div>
+  <div class="drop" aria-hidden="true"></div>
+</header>
+
+<main>
+<section id="casa">
+  <div class="wrap">
+    <h2>Confira sua casa</h2>
+    <p class="lead">O <em>Aedes aegypti</em> se cria em água parada e limpa. Uma vez por semana, passe por estes pontos e marque o que já verificou.</p>
+    <div class="check-grid" id="list"></div>
+    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="bar"><i id="fill"></i></div>
+    <p id="msg" aria-live="polite">Marque os itens conforme for verificando.</p>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <h2>Como reconhecer a dengue</h2>
+    <p class="lead">Os sintomas costumam aparecer entre 3 e 14 dias após a picada. Muitos casos são leves, mas a doença pode piorar rápido.</p>
+    <div class="cols">
+      <div class="box">
+        <h3>Sintomas comuns</h3>
+        <ul>
+          <li>Febre alta de início repentino</li>
+          <li>Dor de cabeça e dor atrás dos olhos</li>
+          <li>Dores no corpo e nas articulações</li>
+          <li>Cansaço, náusea e vômitos</li>
+          <li>Manchas vermelhas na pele</li>
+        </ul>
+      </div>
+      <div class="box alert">
+        <h3>Sinais de alerta: procure atendimento já</h3>
+        <ul>
+          <li>Dor forte e contínua na barriga</li>
+          <li>Vômitos que não param</li>
+          <li>Sangramento no nariz, gengiva ou nas fezes</li>
+          <li>Sonolência, irritação ou desmaio</li>
+          <li>Tontura, pele fria e pegajosa</li>
+          <li>Falta de ar ou pouca urina</li>
+        </ul>
+        <p class="alert-note">Esses sinais costumam surgir quando a febre baixa. Não espere melhorar: vá a uma unidade de saúde.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Se suspeitar de dengue</h2>
+    <p class="lead">Procure uma unidade de saúde para avaliação. Enquanto isso, cuide com atenção.</p>
+    <div class="cols">
+      <div class="box do">
+        <h3>Faça</h3>
+        <ul>
+          <li>Descanse bastante</li>
+          <li>Beba muito líquido: água, soro caseiro, sucos e água de coco</li>
+          <li>Use apenas os remédios indicados por um profissional de saúde</li>
+          <li>Acompanhe os sinais de alerta nos dias seguintes</li>
+        </ul>
+      </div>
+      <div class="box dont">
+        <h3>Não faça</h3>
+        <ul>
+          <li>Não tome aspirina (AAS) nem anti-inflamatórios como ibuprofeno: podem aumentar o risco de sangramento</li>
+          <li>Não se automedique</li>
+          <li>Não ignore a piora da doença</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <h2>Proteja-se das picadas</h2>
+    <p class="lead">O mosquito costuma picar durante o dia, principalmente de manhã cedo e no fim da tarde.</p>
+    <div class="protect">
+      <div><h3>Repelente</h3><p>Aplique na pele exposta e reaplique conforme a orientação do produto.</p></div>
+      <div><h3>Telas e mosquiteiros</h3><p>Proteja janelas, portas e berços, principalmente de bebês.</p></div>
+      <div><h3>Roupas compridas</h3><p>Cobrem a pele e ajudam em locais com muitos mosquitos.</p></div>
+      <div><h3>Vacina</h3><p>Pergunte na unidade de saúde mais próxima quem pode se vacinar e como.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Informação não substitui atendimento médico.</strong> Em caso de dúvida, procure uma Unidade Básica de Saúde. Dúvidas gerais: Disque Saúde 136.</p>
+    <p>Fonte de referência: <a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/d/dengue" target="_blank" rel="noopener">Ministério da Saúde</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var items=[
+    ["Pratos de vasos de plantas","Coloque areia até a borda ou lave com bucha uma vez por semana."],
+    ["Caixa d'água e tonéis","Mantenha bem tampados, sem frestas."],
+    ["Calhas e lajes","Retire folhas e sujeira para a água escoar."],
+    ["Pneus","Guarde cobertos ou leve a um ponto de coleta."],
+    ["Garrafas, baldes e latas","Guarde de boca para baixo, em local coberto."],
+    ["Ralos e piscinas","Use tela ou tampa nos ralos e trate a água da piscina."],
+    ["Bebedouros de animais","Troque a água e lave o recipiente com frequência."],
+    ["Lixo","Mantenha em sacos fechados e lixeira tampada."]
+  ];
+  var list=document.getElementById("list"),fill=document.getElementById("fill"),
+      bar=document.getElementById("bar"),msg=document.getElementById("msg");
+  items.forEach(function(it){
+    var l=document.createElement("label");l.className="item";
+    l.innerHTML='<input type="checkbox"><div><strong>'+it[0]+'</strong><span>'+it[1]+'</span></div>';
+    l.querySelector("input").addEventListener("change",update);
+    list.appendChild(l);
+  });
+  function update(){
+    var n=list.querySelectorAll("input:checked").length,p=Math.round(n/items.length*100);
+    fill.style.width=p+"%";bar.setAttribute("aria-valuenow",p);
+    msg.textContent=n===items.length?"Casa verificada! Repita esta checagem toda semana.":n+" de "+items.length+" itens verificados.";
+  }
+})();
+</script>
+</body>
+</html>
